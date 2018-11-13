@@ -1,0 +1,62 @@
+package internalassessment;
+import java.util.*;
+public class SongPlaylist {
+	
+	private ArrayList<Song> songs;
+	
+	public SongPlaylist() {
+    	
+	}
+	
+	public SongPlaylist(ArrayList<Song> s) {
+    	songs = s;
+	}
+	
+	public ArrayList<Song> SongsAlphabetical(ArrayList<Song> s) {
+    	int len = s.size();
+    	for (int i = 0; i < len; i++) {
+        	for (int j = 1; j < len-1; j++) {
+            	if (Character.getNumericValue(s.get(j-1).getName().charAt(0)) < Character.getNumericValue(s.get(j).getName().charAt(0))) {
+                	s.add(j-1, s.get(j));
+                	s.remove(j+1);
+            	}
+        	}
+    	}
+    	return s;
+	}
+	
+	// Method for converting a String into an array of characters
+	public char[] StringToChars(String s) {
+    	char[] chars = new char[s.length()];
+    	for(int i = 0; i < s.length(); i++) {
+        	chars[i] = s.charAt(i);
+    	}
+    	return chars;
+	}
+	
+	// Method for assiging a numerical value to each character, increasing in alphabetic order
+	public int[] alphabetPos(char[] c) {
+    	int[] pos = new int[c.length];
+    	for(int i = 0; i < c.length; i++) {
+        	pos[i] = Character.getNumericValue(c[i]);
+    	}
+    	return pos;
+	}
+	
+	// Method for converting a String into an array of integers, each corresponding
+	// to the relative numerical value of each character, in increasing alphabetical order
+	
+	// overloaded alphabetPos method
+	public int[] alphabetPos(String s) {
+    	char[] chars = new char[s.length()];
+    	for(int i = 0; i < s.length(); i++) {
+        	chars[i] = s.charAt(i);
+    	}
+    	int[] pos = new int[chars.length];
+    	for(int i = 0; i < chars.length; i++) {
+        	pos[i] = Character.getNumericValue(chars[i]);
+    	}
+    	return pos;
+	}
+	
+}
