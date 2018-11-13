@@ -1,0 +1,50 @@
+package internalassessment;
+public class Time {
+	
+	private int seconds;
+	private int minutes;
+	private int hours;
+	
+        //Default constructor
+	public Time() {
+    	
+	}
+	
+        //Constructor with arguments
+	public Time(int s, int m, int h) {
+            seconds = s;
+            minutes = m;
+            hours = h;
+	}
+	
+	// Getters
+        public int getHours() {
+            return hours;
+        }
+	public int getSeconds() {
+            return seconds;
+	}
+	public int getMinutes() {
+            return minutes;
+	}
+	
+	// Setters
+        public void setHours(int h) {
+            hours = h;
+        }
+	public void setSeconds(int s) {
+            seconds = s;
+	}
+	public void setMinutes(int m) {
+            minutes = m;
+	}
+	
+	// To-String methods
+	public String toStringSong() {
+            return minutes + ":" + seconds;
+	}
+	public String toStringMovie() {
+            return hours+"h"+minutes+"m";
+	}
+	
+}
