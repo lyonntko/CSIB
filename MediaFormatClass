@@ -1,0 +1,205 @@
+package internalassessment;
+
+import java.util.*;
+
+public class MediaFormat {
+    
+    private String name;
+    private String creator;
+    private int year; //year of release
+    
+    //Default constructor
+    public MediaFormat() {
+        
+    }
+    
+    //Construtor with arguments
+    public MediaFormat(String name, String artist, int year) {
+        this.name = name;
+        this.creator = artist;
+        this.year = year;
+    }
+    
+    //Getters
+    public String getName() {
+        return name;
+    }
+    public String getCreator() {
+        return creator;
+    }
+    public int getYear() {
+        return year;
+    }
+    
+    //Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setCreator(String artist) {
+        this.creator = artist;
+    }
+    public void setYear(int year) {
+        this.year = year;
+    }
+    
+    //Converts a string into an array of characters
+    public char[] StringToChars(String s) {
+        char[] chars = new char[s.length()];
+        for(int i = 0; i < s.length(); i++) {
+            chars[i] = s.charAt(i);
+        }
+        return chars;
+    }
+    
+    //Swaps strings based on char comparison, ignoring case sensitivity
+    public String[] stringComparison(String[] s, int p) {
+        if(p < s[0].length()) {
+            return s;
+        } else if(p < s[0].length()) {
+            String temp = s[1];
+            s[1] = s[0];
+            s[0] = s[1];
+            return s;
+        } else {
+            if(Character.toLowerCase(s[0].charAt(p)) > Character.toLowerCase(s[1].charAt(p))) {
+                String temp = s[1];
+                s[1] = s[0];
+                s[0] = s[1];
+                return s;
+            } else if(Character.toLowerCase(s[0].charAt(p)) < Character.toLowerCase(s[1].charAt(p))) {
+                return s;
+            } else if(Character.toLowerCase(s[0].charAt(p)) == Character.toLowerCase(s[1].charAt(p))) {
+                stringComparison(s, p+1);
+            }
+        }
+        return s;
+    }
+    
+    //Sorts an array of strings in ascending order
+    public String[] stringAscending(String[] s) {
+        String min = s[0];
+        String[] sub = new String[2];
+        for(int i = 0; i < s.length; i++) {
+            for(int j = 1; j < s.length-1; j++) {
+                sub[0] = s[j-1];
+                sub[1] = s[j];
+                stringComparison(sub, 0);
+                s[j-1] = sub[0];
+                s[j] = sub[1];
+            }
+        }
+        return s;
+    }
+    
+    //Sorts an array of strings in descending order
+    public String[] stringDescending(String[] s) {
+        stringAscending(s);
+        String[] copy = new String[s.length];
+        for(int i = 0; i < s.length; i++) {
+            copy[i] = s[s.length-1];
+        }
+        return copy;
+    }
+    
+    //Sorts an array of dates in ascending order
+    public Date[] dateAscending(Date[] d) {
+        Date min = d[0] ;
+        for(int i = 0; i < d.length; i++) {
+            for(int j = 1; j < d.length-1; j++) {
+                if(d[j-1].getYear() > d[j].getYear()) {
+                    Date temp = d[j-1];
+                    d[j-1] = d[j];
+                    d[j] = temp;
+                } else if(d[j-1].getYear() == d[j].getYear()) {
+                    if(d[j-1].getMonth() > d[j].getMonth()) {
+                        Date temp = d[j-1];
+                        d[j-1] = d[j];
+                        d[j] = temp;
+                    } else if(d[j-1].getMonth() == d[j].getMonth()) {
+                        if(d[j-1].getDay() > d[j].getDay()) {
+                            Date temp = d[j-1];
+                            d[j-1] = d[j];
+                            d[j] = temp;
+                        }
+                    }
+                }
+            }
+        }
+        return d;
+    }
+    
+    //Sorts an array of dates in descending order
+    public Date[] dateDescending(Date[] d) {
+        dateAscending(d);
+        Date [] copy = new Date[d.length];
+        for(int i = 0; i < d.length; i++) {
+            copy[i] = d[d.length-i];
+        }
+        return copy;
+    }
+    
+    //Sorts an array of tiems in ascending order
+    public Time[] timeAscending(Time[] t) {
+        Time min = t[0] ;
+        for(int i = 0; i < t.length; i++) {
+            for(int j = 1; j < t.length-1; j++) {
+                if(t[j-1].getHours() > t[j].getHours()) {
+                    Time temp = t[j-1];
+                    t[j-1] = t[j];
+                    t[j] = temp;
+                } else if(t[j-1].getHours() == t[j].getHours()) {
+                    if(t[j-1].getMinutes() > t[j].getMinutes()) {
+                        Time temp = t[j-1];
+                        t[j-1] = t[j];
+                        t[j] = temp;
+                    } else if(t[j-1].getMinutes() == t[j].getMinutes()) {
+                        if(t[j-1].getSeconds() > t[j].getSeconds()) {
+                            Time temp = t[j-1];
+                            t[j-1] = t[j];
+                            t[j] = temp;
+                        }
+                    }
+                }
+            }
+        }
+        return t;
+    }
+    
+    //Sorts an array of times in descending order
+    public Time[] timeDescending(Time[] t) {
+        timeAscending(t);
+        Time[] copy = new Time[t.length];
+        for(int i = 0; i < t.length; i++) {
+            copy[i] = t[t.length - i];
+        }
+        return copy;
+    }
+    
+    //Sorts an array of integers in ascending order
+    public int[] yearAscending(int[] n) {
+        int min = n[0];
+        for(int i = 0; i < n.length; i++) {
+            for(int j = 1; j < n.length-1; j++) {
+                if(n[j-1] > n[j]) {
+                    int temp = n[j-1];
+                    n[j-1] = n[j];
+                    n[j] = temp;
+                }
+            }
+        }
+        return n;
+    }
+    
+    //Sorts an array of integers in descending order
+    public int[] yearDescending(int[] n) {
+        yearAscending(n);
+        int[] copy = new int[n.length];
+        for(int i = 0; i < n.length; i++) {
+            copy[i] = n[n.length - i];
+        }
+        return copy;
+    }
+    
+    
+    
+}
