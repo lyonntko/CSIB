@@ -1,0 +1,31 @@
+package internalassessment;
+import java.util.*;
+public class Artist {
+	
+	// Instance variables
+	private ArrayList<String> lead;
+	private ArrayList<String> featured;
+	
+	// Default constructor
+	public Artist() {
+    	
+	}
+	
+	// Constructor with arguments for songs with featured artists
+	public Artist(String[] l, String[] feat) {
+    	for(int i = 0; i < l.length; i++) {
+        	featured.add(i, l[i]);   //creates an ArrayList of main artist(s)
+    	}
+    	for(int i = 0; i < feat.length; i++) {
+        	featured.add(i, feat[i]);   //creates an ArrayList of featured artists
+    	}
+	}
+	
+	// Constructor with arguments for songs without featured artists
+	public Artist(String[] l) {
+    	for(int i = 0; i < l.length; i++) {
+        	featured.add(i, l[i]);   //creates an ArrayList of main artist(s)
+    	}
+	}
+	
+}
