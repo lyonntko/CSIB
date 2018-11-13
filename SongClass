@@ -1,0 +1,81 @@
+package internalassessment;
+import java.util.*;
+public class Song extends MediaFormat{
+	
+	// Instance variables
+	private String name; //song name
+	private ArrayList<String> artist; //song artists
+	private String album; //name of album
+	private int YoR; //YoR = Year of Release
+	private String genre; //song genre
+	private Time duration; //duration of the song
+	
+	// Default constructor
+	public Song() {
+    	
+	}
+	
+	// Constructor with arguments
+	public Song(String n, ArrayList<String> art, String a, int y, String g, Time d) {
+    	name = n;
+    	artist = art;
+    	album = a;
+    	YoR = y;
+    	genre = g;
+    	duration = d;
+	}
+	
+	public Song(String n, ArrayList<String> art, String a, int y, String g) {
+    	name = n;
+    	artist = art;
+    	album = a;
+    	YoR = y;
+    	genre = g;
+	}
+	
+	// Getters
+	public String getName() {
+    	return name;
+	}
+	public ArrayList<String> getArtist() {
+    	return artist;
+	}
+	public String getAlbum() {
+    	return album;
+	}
+	public int getYoR() {
+    	return YoR;
+	}
+	public String getGenre() {
+    	return genre;
+	}
+	public String getDuration() {
+    	return duration.toStringSong(); //returns duration in format "minutes":"seconds"
+	}
+	
+	// Setters
+	public void setName(String name) {
+    	this.name = name;
+	}
+	public void setArtist(ArrayList<String> artist) {
+    	this.artist = artist;
+	}
+	public void setAlbum(String album) {
+    	this.album = album;
+	}
+	public void setYoR(int YoR) {
+    	this.YoR = YoR;
+	}
+	public void setGenre(String genre) {
+    	this.genre = genre;
+	}
+	public void setDuration(Time duration) {
+    	this.duration = duration;
+	}
+	
+	// To-String method
+	public String toString() {
+    	return "Song name: "+name+", Artist: "+artist+", Album: "+album+", Year of release: "+YoR+", Genre: "+genre+", Duration: "+duration.toStringSong();
+	}
+	
+}
