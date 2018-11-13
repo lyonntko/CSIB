@@ -1,0 +1,81 @@
+package internalassessment;
+
+public class VideoGame extends MediaFormat{
+	
+	// Instance variables
+	private String name; //video game name
+	private String devs; //video game developers
+	private String publisher; //video game publisher, publishing house
+	private String series; //series the video game is a part of
+	private String genres; //genres the video game belongs to
+	private Date release; //date of release
+	private String mode; //mode of game (e.g. single player, mmo...)
+	
+	// Default constructor
+	public VideoGame() {
+    	
+	}
+	
+	// Constructor with argumetns
+	public VideoGame(String n, String d, String p, String s, String g, Date t, String m) {
+    	name = n;
+    	devs = d;
+    	publisher = p;
+    	series = s;
+    	genres = g;
+    	release = t;
+    	mode = m;
+	}
+	
+	// Getters
+	public String getName() {
+    	return name;
+	}
+	public String getDevs() {
+    	return devs;
+	}
+	public String getPublisher() {
+    	return publisher;
+	}
+	public String getSeries() {
+    	return series;
+	}
+	public String getGenres() {
+    	return genres;
+	}
+	public Date getRelease() {
+    	return release;
+	}
+	public String getMode() {
+    	return mode;
+	}
+	
+	// Setters
+	public void setName(String n) {
+    	name = n;
+	}
+	public void setDevs(String d) {
+    	devs = d;
+	}
+	public void setPublisher(String p) {
+    	publisher = p;
+	}
+	public void setSeries(String s) {
+    	series = s;
+	}
+	public void setGernes(String g) {
+    	genres = g;
+	}
+	public void setRelease(Date t) {
+    	release = t;
+	}
+	public void setMode(String m) {
+    	mode = m;
+	}
+	
+	// To-String method
+	public String toString() {
+    	return "Name: "+name+", Developer(s): "+devs+", Publisher: "+publisher+", Series: "+series+", Genre(s): "+genres+", Release date: "+release+", Mode(s): "+mode;
+	}
+	
+}
