@@ -1,0 +1,71 @@
+package internalassessment;
+
+import java.util.*;
+import java.io.*;
+
+public class InternalAssessment {
+	
+    public static void main(String[] args) throws IOException {
+    	
+    	Scanner scan = new Scanner(new File("Playlist.txt"));
+    	
+    	ArrayList<Song> songs = new ArrayList<>();
+    	
+    	while(scan.hasNextLine()) {
+        	if(scan.next().equals("Songs:")) {
+                    int i = 0;
+                    while(!scan.nextLine().equals("Movies:")||!scan.nextLine().equals("Books:")||!scan.nextLine().equals("Video Games:")||scan.hasNextLine()) {
+                	String name = scan.next();
+                	while(!scan.next().equals("-")) {
+                            name += " "+scan.next();
+                	}
+                	// ArrayList<String> leadArtists = new ArrayList<>();
+                	String artist = scan.next();
+                	while(!scan.next().equals("-")) {
+                            artist += " "+scan.next();
+                	}
+                	ArrayList<String> leadArtists = new ArrayList<>();
+                	int count = 0;
+                	leadArtists.add(count, artist);
+                	count ++;
+                	while(!scan.next().equals("-")) {
+                            if(scan.next().equals(",")) {
+                        	leadArtists.add(count, artist);
+                        	while(!scan.next().equals("-")) {
+                                    artist = scan.next();
+                                    while(!scan.next().equals(",")) {
+                                	artist += " "+scan.next();
+                                    }
+                        	}
+                            }
+                	}
+                	ArrayList<String> featArtists = new ArrayList<>();
+                	if(scan.next().equals("feat.")) {
+                            String feat = scan.next();
+                            while(!scan.next().equals("-")) {
+                        	feat += " "+scan.next();
+                            }
+                	}
+                	String album = scan.next();
+                	while(!scan.next().equals("-")) {
+                            album += " "+scan.next();
+                	}
+                	int year = scan.nextInt();
+                	scan.next();
+                	String genre = scan.next();
+                	while(!scan.next().equals("-")) {
+                            if(scan.next().equals(",")) {
+                        	
+                            }
+                            genre += " "+scan.next();
+                	}
+                	Song song1 = new Song(name, leadArtists, album, year, genre);
+                	
+                	System.out.println(song1.toString());
+                    }
+        	}
+            }
+	}
+	
+}
+
