@@ -1,0 +1,65 @@
+package internalassessment;
+
+public class Book extends MediaFormat{
+    
+    // Instance variables
+    private String name; //book name
+    private String writer; //writer name
+    private String publisher; //publisher or publishing house
+    private int YoP; //year of publishing
+    private String genre; //book genre
+    
+    // Default constructor 
+    public Book() {
+        
+    }
+    
+    // Constructor with arguments
+    public Book(String n, String w, String p, int y, String g) {
+        name = n;
+        writer = w;
+        publisher = p; 
+        YoP = y;
+        genre = g;
+    }
+    
+    // Getters
+    public String getName() {
+        return name;
+    }
+    public String getWriter() {
+        return writer;
+    }
+    public String getPublisher() {
+        return publisher;
+    }
+    public int getYoP() {
+        return YoP;
+    }
+    public String getGenre() {
+        return genre;
+    }
+    
+    // Setters
+    public void setName(String n) {
+        name = n;
+    }
+    public void setWriter(String w) {
+        writer = w;
+    }
+    public void setPublisher(String p) {
+        publisher = p;
+    }
+    public void setYoP(int y) {
+        YoP = y;
+    }
+    public void setGenre(String g) {
+        genre = g;
+    }
+    
+    // To-String method
+    public String toString() {
+        return "Book name: "+name+", Writer: "+writer+", Publisher: "+publisher+", Year of Publishing: "+YoP+", Genre: "+genre;
+    }
+    
+}
