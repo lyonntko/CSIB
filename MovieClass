@@ -1,0 +1,75 @@
+package internalassessment;
+
+public class Movie extends MediaFormat{
+    
+    // !!!deal with genres, mustn't be String
+    
+    // Instance variables
+    private String name; //movie name
+    private String director; //director name
+    private int year; //year of release
+    private String genres; //genres
+    private Time duration; //movie duration
+    private String rating; //movie rating on IMDb
+    
+    // Default constructor
+    public Movie() {
+        
+    }
+    
+    // Constructor with arguments
+    public Movie(String n, String d, int y, String g, Time t, String r) {
+        name = n;
+        director = d;
+        year = y;
+        genres = g;
+        duration = t;
+        rating = r;
+    }
+    
+    // Getters
+    public String getName() {
+        return name;
+    }
+    public String getDirector() {
+        return director;
+    }
+    public int getYear() {
+        return year;
+    }
+    public String getGenres() {
+        return genres;
+    }
+    public Time getDuration() {
+        return duration;
+    }
+    public String getRating() {
+        return rating;
+    }
+    
+    // Setters
+    public void setName(String n) {
+        name = n;
+    }
+    public void setDirector(String d) {
+        director = d;
+    }
+    public void setYear(int y) {
+        year = y;
+    }
+    public void setGenres(String g) {
+        genres = g;
+    }
+    public void setDuration(Time t) {
+        duration = t;
+    }
+    public void setRating(String r) {
+        rating = r;
+    }
+    
+    //To-String methods
+    public String toString() {
+        return "Name: "+name+", Director: "+director+", Year: "+year+", Genres: "+genres+", Duration: "+duration+", Rating: "+rating;
+    }
+    
+}
